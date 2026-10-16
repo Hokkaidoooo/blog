@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { getPosts, postMeta, postUrl } from '../lib/posts';
+import { CATEGORIES, href } from '../lib/site.mjs';
+const posts = await getPosts();
+const years = [...new Set(posts.map((post) => post.data.date.getUTCFullYear()))];
+---
+<Base title="全部文章" active="archive" description="Hokkaido 的全部文章，按时间整理的学习笔记、生活随笔与创作思考。">
+  <div class="shell inner-page">
+    <header class="page-heading">
+      <p class="eyebrow">THE ARCHIVE</p>
+      <h1>全部文章<span class="heading-aside">Archive</span></h1>
+      <p>写下的每一页，都在这里。</p>
+    </header>
+    <div class="archive-toolbar">
+      <nav class="category-tabs" aria-label="文章分类">
+        <a class="active" href={href('archive/')} aria-current="page">全部</a>
+        {CATEGORIES.map((category) => <a href={href('category/' + category.id + '/')}>{category.name}</a>)}
+      </nav>
+      <button class="text-link" type="button" data-search-open><Icon name="search" size={17} /> 搜索文章</button>
+    </div>
+    {years.map((year) => (
+      <section class="archive-year" aria-labelledby={'year-' + year}>
+        <h2 id={'year-' + year}>{year}<span>{posts.filter((post) => post.data.date.getUTCFullYear() === year).length} 篇</span></h2>
+        <ol>
+          {posts.filter((post) => post.data.date.getUTCFullYear() === year).map((post) => {
+            const meta = postMeta(post);
+            return <li>
+              <time datetime={post.data.date.toISOString().slice(0, 10)}>{meta.date.slice(5)}</time>
+              <a class="archive-title" href={postUrl(post)}>{post.data.title}<span>{meta.category.name} <span aria-hidden="true">/</span> {meta.minutes} 分钟阅读</span></a>
+              <Icon name="external" size={19} />
+            </li>;
+          })}
+        </ol>
+      </section>
+    ))}
+    {!posts.length && <p class="empty-message">还没有公开文章。</p>}
+  </div>
+</Base>

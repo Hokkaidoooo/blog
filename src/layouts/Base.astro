@@ -1,0 +1,87 @@
+---
+import Icon from '../components/Icon.astro';
+import Search from '../components/Search.astro';
+import { SITE, href, absoluteUrl } from '../lib/site.mjs';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  active?: 'home' | 'archive' | 'about';
+  article?: { title: string; date: Date };
+  noindex?: boolean;
+}
+const { title, description = SITE.description, active, article, noindex = false } = Astro.props;
+const pageTitle = title ? title + ' · ' + SITE.name : SITE.name + ' — 学习与生活';
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const structuredData = article ? {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: article.title,
+  description,
+  datePublished: article.date.toISOString(),
+  author: { '@type': 'Person', name: SITE.author, url: absoluteUrl('about/') },
+  mainEntityOfPage: canonical,
+  image: absoluteUrl('images/landscape.jpg'),
+} : {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: SITE.name,
+  description,
+  url: absoluteUrl(),
+  author: { '@type': 'Person', name: SITE.author },
+};
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f5ef" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absoluteUrl('images/landscape.jpg')} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {article && <meta property="article:published_time" content={article.date.toISOString()} />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={href('favicon.svg')} />
+    <link rel="alternate" type="application/rss+xml" title={SITE.name} href={href('rss.xml')} />
+    <title>{pageTitle}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header shell">
+      <a class="brand" href={href()} aria-label="Hokkaido 手记首页">
+        <span class="brand-mark" aria-hidden="true">h.</span>
+        <span>Hokkaido <span class="brand-divider">/</span> <span class="brand-cn">手记</span></span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href={href()} aria-current={active === 'home' ? 'page' : undefined}>首页</a>
+        <a href={href('archive/')} aria-current={active === 'archive' ? 'page' : undefined}>文章</a>
+        <a href={href('about/')} aria-current={active === 'about' ? 'page' : undefined}>关于</a>
+      </nav>
+      <button class="search-trigger" type="button" data-search-open aria-haspopup="dialog" aria-label="搜索文章">
+        <Icon name="search" size={18} /><span>搜索</span><kbd>/</kbd>
+      </button>
+    </header>
+    <main id="main" tabindex="-1"><slot /></main>
+    <footer class="site-footer shell">
+      <a class="footer-brand" href={href()}>Hokkaido<span>手记</span></a>
+      <span class="copyright">© {new Date().getFullYear()} Hokkaido</span>
+      <nav aria-label="其他入口">
+        <a href={SITE.portfolio}>作品集 <Icon name="external" size={13} /></a>
+        <a href={SITE.github}>GitHub <Icon name="external" size={13} /></a>
+        <a href={href('rss.xml')}><Icon name="rss" size={14} /> RSS</a>
+      </nav>
+    </footer>
+    <Search />
+    <noscript><style>.search-trigger, [data-search-open], .reading-progress, #copy-link { display: none; }</style></noscript>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { href } from '../lib/site.mjs';
+---
+<Base title="没有找到这一页" noindex>
+  <section class="not-found shell"><p class="eyebrow">PAGE NOT FOUND</p><span class="error-number">404</span><h1>这一页，似乎走丢了。</h1><p>地址可能有误，也可能文章已经搬家。</p><a class="button-primary" href={href('archive/')}>去读其他文章 <Icon name="arrow" size={18} /></a></section>
+</Base>

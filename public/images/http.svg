@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#e8ebe4"/>
+<g fill="none" stroke="#d2d9cd" stroke-width="1"><path d="M0 150h1200M0 300h1200M0 450h1200M0 600h1200M150 0v760M300 0v760M450 0v760M600 0v760M750 0v760M900 0v760M1050 0v760"/></g>
+<rect x="176" y="178" width="848" height="412" rx="9" fill="#f7f7f0" stroke="#aebba9" stroke-width="2"/>
+<path d="M176 239h848" stroke="#d8dfd2" stroke-width="2"/>
+<g fill="#b2bfa9"><circle cx="210" cy="209" r="6"/><circle cx="233" cy="209" r="6"/><circle cx="256" cy="209" r="6"/></g>
+<text x="230" y="321" font-family="monospace" font-size="31" fill="#365740">GET / HTTP/1.1</text>
+<text x="230" y="374" font-family="monospace" font-size="25" fill="#77846d">Host: localhost</text>
+<path d="M235 426h716" stroke="#d4dccd" stroke-dasharray="5 9"/>
+<text x="230" y="480" font-family="monospace" font-size="31" fill="#365740">HTTP/1.1 200 OK</text>
+<text x="230" y="531" font-family="monospace" font-size="25" fill="#77846d">Connection: close</text>
+</svg>

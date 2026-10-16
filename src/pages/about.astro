@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { CATEGORIES, SITE, href } from '../lib/site.mjs';
+---
+<Base title="关于" active="about" description="你好，我是 Hokkaido。这个博客记录学习的过程，也为日常与创作留一个位置。">
+  <div class="shell inner-page">
+    <header class="page-heading"><p class="eyebrow">BEHIND THE WORDS</p><h1>关于这里<span class="heading-aside">Hello.</span></h1></header>
+    <div class="about-layout">
+      <div class="about-body prose">
+        <h2>你好，我是 Hokkaido。</h2>
+        <p>这个博客记录学习的过程，也为日常里的想法留一个位置。</p>
+        <p>有些问题适合用代码回答，有些需要写下来才会更清楚。这里会放计算机学习笔记、项目中的具体问题，以及生活和内容创作中的思考。</p>
+        <h2>这里会写些什么</h2>
+        <dl class="about-topics">{CATEGORIES.map((category) => <div><dt><a href={href('category/' + category.id + '/')}>{category.name} <Icon name="arrow" size={16} /></a></dt><dd>{category.description}</dd></div>)}</dl>
+        <h2>也可以在这些地方找到我</h2>
+        <p>项目和源代码收在作品集与 GitHub。想继续读新文章，可以把 RSS 地址加入你习惯使用的阅读器。</p>
+        <div class="about-links">
+          <a href={SITE.portfolio}>项目作品集 <Icon name="external" size={15} /></a>
+          <a href={SITE.github}>GitHub <Icon name="external" size={15} /></a>
+          <a href={href('rss.xml')}>RSS 订阅 <Icon name="rss" size={15} /></a>
+        </div>
+      </div>
+      <aside class="about-picture">
+        <img src={href('images/landscape.jpg')} alt="群山、湖水和湖畔小屋的安静风景" width="1400" height="933" loading="lazy" />
+        <p class="signature">Hokkaido</p>
+        <p>学习，也生活。</p>
+      </aside>
+    </div>
+  </div>
+</Base>

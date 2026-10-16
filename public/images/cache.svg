@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#eee5d6"/>
+<g stroke="#ded2bd" fill="none" stroke-width="2"><path d="M173 196h854M173 565h854"/><path d="M194 195v370M1007 195v370" stroke-dasharray="5 9"/></g>
+<g fill="#f8f3e8" stroke="#c7bda4" stroke-width="2"><rect x="226" y="265" width="166" height="221" rx="4"/><rect x="420" y="265" width="166" height="221" rx="4"/><rect x="614" y="265" width="166" height="221" rx="4"/><rect x="808" y="265" width="166" height="221" rx="4"/></g>
+<rect x="420" y="265" width="166" height="221" rx="4" fill="#415a47"/>
+<g text-anchor="middle" font-family="Georgia,serif" font-size="77" fill="#6a7457"><text x="309" y="398">0</text><text x="503" y="398" fill="#faf6ed">4</text><text x="697" y="398">0</text><text x="891" y="398">4</text></g>
+<path d="m409 205 6-8 6 8m-6-8v42M602 205l6-8 6 8m-6-8v42M797 205l6-8 6 8m-6-8v42" stroke="#a49374" stroke-width="2" fill="none"/>
+<text x="600" y="622" text-anchor="middle" font-family="monospace" font-size="21" letter-spacing="5" fill="#8c8168">CACHE / A CLOSER LOOK</text>
+</svg>
