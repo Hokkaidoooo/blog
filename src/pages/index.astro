@@ -29,16 +29,6 @@ const recent = posts.filter((post) => post.id !== featured?.id).slice(0, 2);
       </figure>
     </section>
 
-    <nav class="topic-grid" aria-label="文章分类">
-      {CATEGORIES.map((category) => (
-        <a class="topic-tile" href={href('category/' + category.id + '/')}>
-          <span class="topic-number">{category.number}</span>
-          <div><h2>{category.name}<span>{category.english}</span></h2><p>{category.description}</p></div>
-          <Icon name="external" size={18} />
-        </a>
-      ))}
-    </nav>
-
     <section class="latest-section" id="latest" aria-labelledby="latest-title">
       <div class="section-heading">
         <div><p class="eyebrow">RECENT ENTRIES</p><h2 id="latest-title">最近写下的</h2></div>
@@ -51,6 +41,16 @@ const recent = posts.filter((post) => post.id !== featured?.id).slice(0, 2);
         </div>
       ) : <p class="empty-message">还没有公开文章。</p>}
     </section>
+
+    <nav class="topic-grid" aria-label="文章分类">
+      {CATEGORIES.map((category) => (
+        <a class="topic-tile" href={href('category/' + category.id + '/')}>
+          <span class="topic-number">{category.number}</span>
+          <div><h2>{category.name}<span>{category.english}</span></h2><p>{category.description}</p></div>
+          <Icon name="external" size={18} />
+        </a>
+      ))}
+    </nav>
 
     <section class="about-strip" aria-labelledby="hello-title">
       <div class="about-seal" aria-hidden="true"><Icon name="leaf" size={29} /></div>

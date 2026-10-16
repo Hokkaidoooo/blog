@@ -33,7 +33,7 @@ npm run preview
 | `date` | 发文日期，例如 `2026-10-16` |
 | `category` | `learning` 学习笔记、`life` 生活随笔、`creating` 内容创作 |
 | `tags` | 1—5 个非空主题标签 |
-| `cover` | `http`、`cache` 或 `writing` |
+| `cover` | 文章列表配图：`http`、`cache` 或 `writing` |
 | `featured` | 是否作为精选文章，默认 `false` |
 | `draft` | 是否为草稿；模板默认 `true`，省略字段时程序默认 `false` |
 
@@ -42,6 +42,12 @@ npm run preview
 文章只维护 `src\content\posts` 中的 Markdown 一份真源，不手工修改生成的文章页面或搜索数据。`templates` 不在文章加载目录内，模板不会被当成文章发布。
 
 站点名称、地址、分类和配图登记统一在 [`src\lib\site.mjs`](src/lib/site.mjs)；增加分类或配图时修改这里。图片文件放在 `public\images`。
+
+## 阅读排版
+
+排版参考 [《排版的艺术：一条很长很长的路》](https://re.karlbaey.top/articles/typography/)，保留米白、墨绿与衬线标题。首页先展示最近文章；阅读页的标题后直接进入正文，列表封面不重复插入文章。
+
+正文使用系统无衬线字体、左对齐与受控行长，代码和表格可在各自区域横向滚动。手机目录默认收起，原生展开与跳转不依赖 JavaScript；宽屏默认展开。字号和阅读宽度在 `src\styles\global.css` 维护。
 
 ## 免费部署
 

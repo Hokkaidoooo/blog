@@ -2,6 +2,10 @@ const article = document.querySelector<HTMLElement>('#article-body')!;
 const progress = document.querySelector<HTMLProgressElement>('.reading-progress')!;
 const headings = Array.from(article.querySelectorAll<HTMLElement>('h2'));
 const tocLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.toc-sticky ol a'));
+const toc = document.querySelector<HTMLDetailsElement>('.toc-sticky')!;
+const compactReadingLayout = window.matchMedia('(max-width: 960px)');
+toc.open = !compactReadingLayout.matches;
+compactReadingLayout.addEventListener('change', (event) => { toc.open = !event.matches; });
 let pendingFrame = false;
 
 function updateReading() {

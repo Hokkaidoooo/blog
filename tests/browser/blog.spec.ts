@@ -114,6 +114,28 @@ test('手机文章正文、代码和目录不溢出', async ({ page }) => {
   await expect(page.locator('.toc-sticky')).toBeVisible();
 });
 
+test('目录随阅读布局展开，手机可用键盘展开并跳转', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(articlePath, { waitUntil: 'networkidle' });
+  const contents = page.locator('.toc-sticky');
+  const summary = contents.locator('summary');
+  const firstLink = contents.locator('ol a').first();
+  await expect(contents).not.toHaveAttribute('open');
+  await expect(firstLink).toBeHidden();
+  await summary.focus();
+  await page.keyboard.press('Enter');
+  await expect(firstLink).toBeVisible();
+  const fragment = await firstLink.getAttribute('href');
+  await firstLink.click();
+  await expect.poll(() => decodeURIComponent(new URL(page.url()).hash)).toBe(fragment);
+  for (const width of [961, 960, 1440, 320]) {
+    await page.setViewportSize({ width, height: 844 });
+    if (width > 960) await expect(contents).toHaveAttribute('open');
+    else await expect(contents).not.toHaveAttribute('open');
+  }
+  await checkLayout(page);
+});
+
 test('搜索支持中文、全角英文、空结果及键盘关闭', async ({ page, request }) => {
   const total = await publicPostCount(request);
   await page.goto(href(), { waitUntil: 'networkidle' });
@@ -172,6 +194,11 @@ test('关闭 JavaScript 仍可阅读和导航', async ({ browser }) => {
     await expect(page.locator('.article-body h2')).toHaveCount(4);
     await expect(page.getByRole('button', { name: '搜索文章', exact: true })).toBeHidden();
     await expect(page.locator('#copy-link')).toBeHidden();
+    await page.locator('.toc-sticky summary').click();
+    const headingLink = page.locator('.toc-sticky ol a').first();
+    const fragment = await headingLink.getAttribute('href');
+    await headingLink.click();
+    await expect.poll(() => decodeURIComponent(new URL(page.url()).hash)).toBe(fragment);
     await page.getByRole('link', { name: '全部文章', exact: true }).first().click();
     await expect(page).toHaveURL(/\/archive\/$/);
   } finally {
