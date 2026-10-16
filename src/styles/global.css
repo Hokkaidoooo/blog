@@ -37,6 +37,7 @@
   :focus-visible { outline: 2px solid var(--green); outline-offset: 5px; border-radius: 2px; }
   #main:focus { outline: none; }
   h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; text-wrap: pretty; }
+  h1 { text-wrap: balance; }
   button { color: inherit; }
   kbd { font-family: var(--mono); font-size: var(--text-label); font-weight: 400; }
   .shell { width: min(1200px, calc(100% - 112px)); margin-inline: auto; }
