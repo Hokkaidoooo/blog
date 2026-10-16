@@ -1,6 +1,6 @@
 # Hokkaido · 手记
 
-用于学习笔记、生活随笔和内容创作的静态博客。**当前是本地初版，尚未部署。** 预定免费地址为 <https://hokkaidoooo.github.io/blog/>。
+用于学习笔记、生活随笔和内容创作的静态博客。博客地址：<https://hokkaidoooo.github.io/blog/>，由 GitHub Pages 免费托管。
 
 ## 本地使用
 
