@@ -17,6 +17,7 @@ export const CATEGORIES = Object.freeze([
 export const COVERS = Object.freeze([
   { id: 'http', file: 'http.svg', alt: '一段 HTTP 请求与响应的示意' },
   { id: 'cache', file: 'cache.svg', alt: 'Cache 访问序列 0、4、0、4 的示意' },
+  { id: 'io', file: 'io.svg', alt: '四层 I/O 软件与硬件之间的请求和中断示意' },
   { id: 'writing', file: 'writing.jpg', alt: '钢笔笔尖落在写有文字的纸页上' },
 ]);
 
