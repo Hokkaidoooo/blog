@@ -211,6 +211,8 @@
   .prose figure { margin-block: 1.5em; }
   .prose img { height: auto; }
   .prose figcaption { margin-top: .75em; color: var(--muted); font-size: var(--text-caption); }
+  .prose .article-figure { margin-block: 1.9em; }
+  .prose .article-figure img { width: 100%; border: 1px solid var(--line); border-radius: 3px; background: #eee5d6; }
   .prose sup, .prose sub { position: relative; font-size: .75em; line-height: 0; vertical-align: baseline; }
   .prose sup { top: -.5em; }
   .prose sub { bottom: -.25em; }
@@ -414,4 +416,26 @@
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition: none !important; animation: none !important; }
   }
+}
+
+/* KaTeX ships unlayered CSS, so site-wide overrides must stay unlayered too. */
+main .katex { font-size: 1.03em; }
+
+main .katex-display {
+  max-width: 100%;
+  margin-block: 1.65em;
+  padding-block: .2em .35em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+main .katex-display > .katex { font-size: 1.08em; }
+main .katex-display::-webkit-scrollbar { height: 4px; }
+main .katex-display::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+
+@media (max-width: 720px) {
+  main .katex-display > .katex { font-size: 1em; }
 }

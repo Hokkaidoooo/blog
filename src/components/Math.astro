@@ -1,0 +1,19 @@
+---
+import katex from 'katex';
+
+interface Props {
+  /** LaTeX source, without the surrounding dollar signs. */
+  tex: string;
+  /** Render as a centered block formula instead of inline math. */
+  display?: boolean;
+}
+
+const { tex, display = false } = Astro.props;
+const html = katex.renderToString(tex, {
+  displayMode: display,
+  strict: false,
+  trust: false,
+});
+---
+
+<Fragment set:html={html} />

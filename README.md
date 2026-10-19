@@ -33,7 +33,7 @@ npm run preview
 | `date` | 发文日期，例如 `2026-10-16` |
 | `category` | `learning` 学习笔记、`life` 生活随笔、`creating` 内容创作 |
 | `tags` | 1—5 个非空主题标签 |
-| `cover` | 文章列表配图：`http`、`cache` 或 `writing` |
+| `cover` | 文章列表配图：`http`、`cache`、`io`、`mle` 或 `writing` |
 | `featured` | 是否作为精选文章，默认 `false` |
 | `draft` | 是否为草稿；模板默认 `true`，省略字段时程序默认 `false` |
 
@@ -48,6 +48,22 @@ npm run preview
 排版参考 [《排版的艺术：一条很长很长的路》](https://re.karlbaey.top/articles/typography/)，保留米白、墨绿与衬线标题。首页先展示最近文章；阅读页的标题后直接进入正文，列表封面不重复插入文章。
 
 正文使用系统无衬线字体、左对齐与受控行长，代码和表格可在各自区域横向滚动。手机目录默认收起，原生展开与跳转不依赖 JavaScript；宽屏默认展开。字号和阅读宽度在 `src\styles\global.css` 维护。
+
+全站支持 KaTeX 数学公式。通过 Markdown 渲染的内容（文章和未来的 Markdown 页面）行内写 `$...$`，独立公式写 `$$...$$`；公式在构建时由 KaTeX 转成 HTML 与 MathML，不依赖客户端 JavaScript，公式过长时可在公式区域内横向滚动。
+
+`.astro` 页面可以复用 [`Math.astro`](src/components/Math.astro)：
+
+```astro
+---
+import Math from '../components/Math.astro';
+---
+<p>质能方程：<Math tex={String.raw`E = mc^2`} />。</p>
+<Math tex={String.raw`\int_0^1 x^2\,\mathrm{d}x = \frac{1}{3}`} display />
+```
+
+`.astro` 属性里的反斜杠会按字符串转义处理，所以公式要用 `String.raw` 包一层；Markdown 里的 `$...$` 不受这个限制。
+
+KaTeX 样式统一在 `src\layouts\Base.astro` 引入，不需要逐页导入。标题里不要写公式标记，目录取的是标题纯文本，直接写 `p`、`θ` 这类字符即可。
 
 ## 免费部署
 
@@ -75,4 +91,4 @@ base: '/blog/',
 - `public\images\landscape.jpg`：[原始图片来源](https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85)。
 - `public\images\writing.jpg`：[原始图片来源](https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1000&q=85)。
 
-照片使用条款见 [Unsplash License](https://unsplash.com/license)。`http.svg` 和 `cache.svg` 为本站绘制的技术示意图。
+照片使用条款见 [Unsplash License](https://unsplash.com/license)。`http.svg`、`cache.svg`、`io.svg`、`mle.svg` 和 `mle-system.svg` 为本站绘制的技术示意图。

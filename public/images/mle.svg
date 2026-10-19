@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">极大似然估计的不变性</title>
+  <desc id="desc">两个并联模块串联成系统，四套试验中三套失效。先估计失效概率为四分之三，再由不变性反解参数为根号二倍 t0。</desc>
+  <rect width="1200" height="760" fill="#eee5d6"/>
+  <g stroke="#ded2bd" stroke-width="1"><path d="M0 120h1200M0 640h1200"/></g>
+
+  <text x="80" y="82" font-family="Consolas, 'Cascadia Mono', monospace" font-size="18" letter-spacing="5" fill="#8c8168">MAXIMUM LIKELIHOOD / ONE PROBLEM</text>
+  <text x="1120" y="82" text-anchor="end" font-family="Consolas, 'Cascadia Mono', monospace" font-size="14" letter-spacing="3" fill="#8c8168">INVARIANCE</text>
+
+  <g fill="none" stroke="#8c8168" stroke-width="2">
+    <path d="M180 300h70"/>
+    <path d="M250 240v120M250 240h60M250 360h60"/>
+    <path d="M460 240h40M460 360h40M500 240v120M500 300h80"/>
+    <path d="M580 240v120M580 240h70M580 360h70"/>
+    <path d="M800 240h50M800 360h50M850 240v120M850 300h80"/>
+  </g>
+  <g fill="#f8f3e8" stroke="#c7bda4" stroke-width="2">
+    <rect x="310" y="205" width="150" height="70" rx="3"/>
+    <rect x="310" y="325" width="150" height="70" rx="3"/>
+    <rect x="650" y="205" width="150" height="70" rx="3"/>
+    <rect x="650" y="325" width="150" height="70" rx="3"/>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="36" fill="#3f5745" text-anchor="middle">
+    <text x="385" y="252">A</text>
+    <text x="385" y="372">B</text>
+    <text x="725" y="252">C</text>
+    <text x="725" y="372">D</text>
+  </g>
+  <g font-family="Consolas, 'Cascadia Mono', monospace" font-size="13" letter-spacing="3" fill="#8c8168" text-anchor="middle">
+    <text x="385" y="165">PAIR 1</text>
+    <text x="725" y="165">PAIR 2</text>
+  </g>
+  <text x="565" y="430" text-anchor="middle" font-family="Consolas, 'Cascadia Mono', monospace" font-size="16" letter-spacing="3" fill="#6a7457">A ∥ B   ·   C ∥ D</text>
+  <text x="565" y="457" text-anchor="middle" font-family="Consolas, 'Cascadia Mono', monospace" font-size="11" letter-spacing="3" fill="#9a8e76">TWO PARALLEL PAIRS, IN SERIES</text>
+
+  <g>
+    <rect x="525" y="478" width="26" height="26" rx="2" fill="#415a47"/>
+    <rect x="561" y="478" width="26" height="26" rx="2" fill="#415a47"/>
+    <rect x="597" y="478" width="26" height="26" rx="2" fill="#415a47"/>
+    <rect x="633" y="478" width="26" height="26" rx="2" fill="#f8f3e8" stroke="#a49374" stroke-width="2"/>
+  </g>
+  <text x="600" y="527" text-anchor="middle" font-family="Consolas, 'Cascadia Mono', monospace" font-size="11" letter-spacing="3" fill="#8c8168">3 FAILED · 1 ALIVE</text>
+
+  <text x="300" y="556" font-family="Consolas, 'Cascadia Mono', monospace" font-size="10" letter-spacing="2" fill="#9a8e76">EVENT PROBABILITY</text>
+  <text x="300" y="612" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#3f5745">p̂ = 3/4</text>
+  <g stroke="#a49374" stroke-width="2" fill="none"><path d="M500 597h45m-8-6 8 6-8 6"/></g>
+  <text x="580" y="556" font-family="Consolas, 'Cascadia Mono', monospace" font-size="10" letter-spacing="2" fill="#9a8e76">INVERT THE MAP</text>
+  <text x="580" y="612" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#3f5745">θ̂ = √2 · t₀</text>
+
+  <text x="80" y="680" font-family="Consolas, 'Cascadia Mono', monospace" font-size="12" letter-spacing="3" fill="#9a8e76">θ → p → 3/4 → θ</text>
+  <text x="1120" y="680" text-anchor="end" font-family="Consolas, 'Cascadia Mono', monospace" font-size="12" letter-spacing="2" fill="#9a8e76">NO DERIVATIVE REQUIRED</text>
+</svg>
