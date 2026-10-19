@@ -212,7 +212,9 @@
   .prose img { height: auto; }
   .prose figcaption { margin-top: .75em; color: var(--muted); font-size: var(--text-caption); }
   .prose .article-figure { margin-block: 1.9em; }
-  .prose .article-figure img { width: 100%; border: 1px solid var(--line); border-radius: 3px; background: #eee5d6; }
+  .prose .article-figure a { display: block; cursor: zoom-in; }
+  .prose .article-figure a:hover img { border-color: #a6b199; }
+  .prose .article-figure img { width: 100%; border: 1px solid var(--line); border-radius: 3px; background: #eee5d6; transition: border-color .18s ease; }
   .prose sup, .prose sub { position: relative; font-size: .75em; line-height: 0; vertical-align: baseline; }
   .prose sup { top: -.5em; }
   .prose sub { bottom: -.25em; }

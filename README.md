@@ -86,9 +86,10 @@ base: '/blog/',
 
 ## 配图来源
 
-两张照片均为 Unsplash 图库氛围配图，不是作者本人拍摄：
+`landscape.jpg` 和 `writing.jpg` 为 Unsplash 图库氛围配图，不是作者本人拍摄：
 
 - `public\images\landscape.jpg`：[原始图片来源](https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85)。
 - `public\images\writing.jpg`：[原始图片来源](https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1000&q=85)。
+- `public\images\mle-problem.png` 和 `public\images\mle-overview.png` 为《一道题真正理解极大似然估计的本质》的题目与知识地图配图，由作者提供。
 
-照片使用条款见 [Unsplash License](https://unsplash.com/license)。`http.svg`、`cache.svg`、`io.svg`、`mle.svg` 和 `mle-system.svg` 为本站绘制的技术示意图。
+照片使用条款见 [Unsplash License](https://unsplash.com/license)。`http.svg`、`cache.svg`、`io.svg` 和 `mle.svg` 为本站绘制的技术示意图。

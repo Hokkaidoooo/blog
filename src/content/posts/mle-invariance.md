@@ -8,16 +8,20 @@ cover: mle
 featured: false
 ---
 
+先看原题。
+
+<figure class="article-figure article-figure-scan">
+  <a href="../../images/mle-problem.png" target="_blank" rel="noopener">
+    <img src="../../images/mle-problem.png" alt="题目原图：四个元件 A、B、C、D 两两并联后串联，要求系统寿命 T 的分布函数，并用四套系统的定时试验结果估计 θ" width="1329" height="537" decoding="async" />
+  </a>
+  <figcaption>原题与系统连接图。点击图片可查看大图。</figcaption>
+</figure>
+
 题目大意是：元件 A、B 并联，C、D 并联，两个并联模块再串联成一个系统；四个元件的寿命独立同分布于均匀分布 $U(0,\theta)$。第一问求系统寿命 $T$ 的分布函数，第二问用四套系统的定时试验结果估计 $\theta$。
 
 第二问看起来很适合“硬算”：把分布函数代进似然函数，取对数，再对 $\theta$ 求导。真算下去，平方、分式和根号会叠在一起，很容易在中途写错一个符号。
 
 但题目真正想考的并不是这场求导。它想看你能否发现：**我们观察到的不是四个连续的寿命值，而是四次“坏 / 没坏”的伯努利试验。** 把待估参数从 $\theta$ 换成失效概率 $p$，问题会立刻降一个维度。
-
-<figure class="article-figure">
-  <img src="../../images/mle-system.svg" alt="元件 A 与 B 并联，元件 C 与 D 并联，两个并联模块再串联，输出系统寿命 T" width="1200" height="420" decoding="async" />
-  <figcaption>系统结构：A、B 并联，C、D 并联，两个模块再串联。系统要正常工作，两条并联支路都必须至少留下一个正常元件。</figcaption>
-</figure>
 
 ## 先把第一问做完
 
@@ -250,3 +254,10 @@ F_T(t_0)=\frac{3}{4},
 $$
 
 极大似然估计的本质，不是把式子写得越长越像在做题，而是找到那个让观测结果最可能发生的参数。换一个更好用的参数来描述同一个模型，往往比硬算更接近统计学的想法。
+
+<figure class="article-figure article-figure-map">
+  <a href="../../images/mle-overview.png" target="_blank" rel="noopener">
+    <img src="../../images/mle-overview.png" alt="极大似然估计知识地图：从概率与似然的区别、似然函数构造、不变性，到截尾数据和常见陷阱的九宫格总结" width="1292" height="554" loading="lazy" decoding="async" />
+  </a>
+  <figcaption>一张把概率、似然、不变性和截尾试验串起来的知识地图。图中文字较密，点击可放大查看原图。</figcaption>
+</figure>
