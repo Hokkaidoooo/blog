@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">定积分比大小：面积估算四步流</title>
+  <desc id="desc">左侧是曲边梯形面积示意，右侧是矩形、三角形、梯形三种估算模型。用骨架估出 I2 小于 I1 小于 I3，全程不需要求导。</desc>
+  <rect width="1200" height="760" fill="#eee5d6"/>
+  <g stroke="#ded2bd" stroke-width="1"><path d="M0 120h1200M0 640h1200"/></g>
+
+  <text x="80" y="82" font-family="Consolas, 'Cascadia Mono', monospace" font-size="18" letter-spacing="5" fill="#8c8168">DEFINITE INTEGRAL / COMPARE BY AREA</text>
+  <text x="1120" y="82" text-anchor="end" font-family="Consolas, 'Cascadia Mono', monospace" font-size="14" letter-spacing="3" fill="#8c8168">FOUR STEPS</text>
+
+  <path d="M140 500 L140 470 C 250 462, 370 355, 520 235 L520 500 Z" fill="#3f5745" fill-opacity="0.14"/>
+  <g fill="none" stroke="#3f5745" stroke-width="2.5">
+    <path d="M140 210v290M140 500h380"/>
+    <path d="M140 470 C 250 462, 370 355, 520 235"/>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#3f5745">
+    <text x="124" y="528">0</text>
+    <text x="512" y="528">b</text>
+    <text x="534" y="234">y = f(x)</text>
+  </g>
+  <text x="330" y="556" text-anchor="middle" font-family="Consolas, 'Cascadia Mono', monospace" font-size="11" letter-spacing="3" fill="#9a8e76">AREA UNDER THE CURVE</text>
+
+  <g fill="#f8f3e8" stroke="#c7bda4" stroke-width="2">
+    <rect x="620" y="210" width="140" height="130" rx="3"/>
+    <rect x="800" y="210" width="140" height="130" rx="3"/>
+    <rect x="980" y="210" width="140" height="130" rx="3"/>
+  </g>
+  <g fill="none" stroke="#415a47" stroke-width="2.5">
+    <rect x="655" y="248" width="70" height="54"/>
+    <path d="M845 302 L915 302 L915 248 Z"/>
+    <path d="M1010 302 L1090 302 L1072 248 L1028 248 Z"/>
+  </g>
+  <g font-family="Consolas, 'Cascadia Mono', monospace" font-size="13" letter-spacing="3" fill="#8c8168" text-anchor="middle">
+    <text x="690" y="372">RECTANGLE</text>
+    <text x="870" y="372">TRIANGLE</text>
+    <text x="1050" y="372">TRAPEZOID</text>
+  </g>
+  <text x="870" y="415" text-anchor="middle" font-family="Consolas, 'Cascadia Mono', monospace" font-size="11" letter-spacing="3" fill="#9a8e76">THREE ELEMENTARY MODELS</text>
+
+  <text x="600" y="556" text-anchor="middle" font-family="Consolas, 'Cascadia Mono', monospace" font-size="10" letter-spacing="3" fill="#9a8e76">SCAN · SKELETON · AREA · TWEAK</text>
+  <text x="600" y="618" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#3f5745">I₂ &lt; I₁ &lt; I₃</text>
+
+  <text x="80" y="680" font-family="Consolas, 'Cascadia Mono', monospace" font-size="12" letter-spacing="3" fill="#9a8e76">BASE × HEIGHT, THEN CONCAVITY</text>
+  <text x="1120" y="680" text-anchor="end" font-family="Consolas, 'Cascadia Mono', monospace" font-size="12" letter-spacing="2" fill="#9a8e76">NO DERIVATIVE REQUIRED</text>
+</svg>

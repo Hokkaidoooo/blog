@@ -19,6 +19,7 @@ export const COVERS = Object.freeze([
   { id: 'cache', file: 'cache.svg', alt: 'Cache 访问序列 0、4、0、4 的示意' },
   { id: 'io', file: 'io.svg', alt: '四层 I/O 软件与硬件之间的请求和中断示意' },
   { id: 'mle', file: 'mle.svg', alt: '并联系统、四套试验结果与极大似然估计不变性的示意' },
+  { id: 'integral', file: 'integral.svg', alt: '曲边梯形面积与矩形、三角形、梯形三种估算模型的示意' },
   { id: 'writing', file: 'writing.jpg', alt: '钢笔笔尖落在写有文字的纸页上' },
 ]);
 
