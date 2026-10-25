@@ -33,7 +33,7 @@ npm run preview
 | `date` | 发文日期，例如 `2026-10-16` |
 | `category` | `learning` 学习笔记、`life` 生活随笔、`creating` 内容创作 |
 | `tags` | 1—5 个非空主题标签 |
-| `cover` | 文章列表配图：`http`、`cache`、`io`、`mle`、`integral` 或 `writing` |
+| `cover` | 文章列表配图：`http`、`cache`、`io`、`mle`、`integral`、`pagefault` 或 `writing` |
 | `featured` | 是否作为精选文章，默认 `false` |
 | `draft` | 是否为草稿；模板默认 `true`，省略字段时程序默认 `false` |
 
@@ -92,4 +92,4 @@ base: '/blog/',
 - `public\images\writing.jpg`：[原始图片来源](https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1000&q=85)。
 - `public\images\mle-problem.png` 和 `public\images\mle-overview.png` 为《一道题真正理解极大似然估计的本质》的题目与知识地图配图，由作者提供。
 
-照片使用条款见 [Unsplash License](https://unsplash.com/license)。`http.svg`、`cache.svg`、`io.svg`、`mle.svg` 和 `integral.svg` 为本站绘制的技术示意图。
+照片使用条款见 [Unsplash License](https://unsplash.com/license)。`http.svg`、`cache.svg`、`io.svg`、`mle.svg`、`integral.svg` 和 `pagefault.svg` 为本站绘制的技术示意图。

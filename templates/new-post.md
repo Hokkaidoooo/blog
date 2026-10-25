@@ -4,7 +4,7 @@ description: '待替换：用一两句话概括这篇文章讨论的问题，以
 date: 2026-10-16 # 发文前改成实际日期；未来日期需要届时重新构建发布。
 category: learning # 可选 learning、life、creating。
 tags: ['待替换主题']
-cover: writing # 可选 http、cache、io、mle、integral、writing。
+cover: writing # 可选 http、cache、io、mle、integral、pagefault、writing。
 featured: false
 draft: true # 完成正文并检查后，改为 false 才能进入网站。
 ---
