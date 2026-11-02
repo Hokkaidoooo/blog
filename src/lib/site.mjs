@@ -21,6 +21,7 @@ export const COVERS = Object.freeze([
   { id: 'mle', file: 'mle.svg', alt: '并联系统、四套试验结果与极大似然估计不变性的示意' },
   { id: 'integral', file: 'integral.svg', alt: '曲边梯形面积与矩形、三角形、梯形三种估算模型的示意' },
   { id: 'pagefault', file: 'pagefault.svg', alt: '页表有效位为 0 触发调页与缺页处理四步流程的示意' },
+  { id: 'pcflow', file: 'pc-flow.svg', alt: '主存指令存放顺序与条件跳转、过程调用、陷阱、过程返回四类指令执行后 PC 去向的示意' },
   { id: 'writing', file: 'writing.jpg', alt: '钢笔笔尖落在写有文字的纸页上' },
 ]);
 

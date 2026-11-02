@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">指令执行后会走到哪一条</title>
+  <desc id="desc">左侧是按存放顺序排列的主存指令序列，右侧列出条件跳转、过程调用、陷阱、过程返回执行后 PC 的去向。前两类有可能落到紧邻的下一条，后两类不可能。</desc>
+  <rect width="1200" height="760" fill="#eee5d6"/>
+  <g stroke="#ded2bd" stroke-width="1"><path d="M0 120h1200M0 640h1200"/></g>
+
+  <text x="80" y="82" font-family="Consolas, 'Cascadia Mono', monospace" font-size="18" letter-spacing="5" fill="#8c8168">PROGRAM COUNTER / WHERE NEXT</text>
+  <text x="1120" y="82" text-anchor="end" font-family="Consolas, 'Cascadia Mono', monospace" font-size="14" letter-spacing="3" fill="#8c8168">FOUR INSTRUCTIONS</text>
+
+  <text x="110" y="150" font-family="Consolas, 'Cascadia Mono', monospace" font-size="11" letter-spacing="3" fill="#9a8e76">STORED ORDER · .text</text>
+
+  <g font-family="Consolas, 'Cascadia Mono', monospace" font-size="12">
+    <g fill="#f8f3e8" stroke="#c7bda4" stroke-width="2">
+      <rect x="110" y="160" width="350" height="34" rx="3"/>
+      <rect x="110" y="204" width="350" height="34" rx="3"/>
+      <rect x="110" y="336" width="350" height="34" rx="3"/>
+      <rect x="110" y="380" width="350" height="34" rx="3"/>
+      <rect x="110" y="424" width="350" height="34" rx="3"/>
+    </g>
+    <g fill="#415a47">
+      <rect x="110" y="248" width="350" height="34" rx="3"/>
+      <rect x="110" y="292" width="350" height="34" rx="3"/>
+    </g>
+    <rect x="110" y="468" width="350" height="34" rx="3" fill="none" stroke="#9a8e76" stroke-width="2" stroke-dasharray="6 5"/>
+    <g fill="#3f5745">
+      <text x="128" y="182">0x401000&#160;&#160;beq t0,t1,Label</text>
+      <text x="128" y="226">0x401004&#160;&#160;add t2,t2,1</text>
+      <text x="128" y="358">0x401050&#160;&#160;call FuncQ</text>
+      <text x="128" y="402">0x401055&#160;&#160;mov eax,ecx</text>
+      <text x="128" y="446">0x402010&#160;&#160;ret</text>
+    </g>
+    <g fill="#f8f3e8">
+      <text x="128" y="270">0x401020&#160;&#160;call $+5</text>
+      <text x="128" y="314">0x401025&#160;&#160;pop ebx</text>
+    </g>
+    <text x="128" y="490" fill="#9a8e76">0x402011&#160;&#160;sub esp,4</text>
+  </g>
+
+  <g font-family="Consolas, 'Cascadia Mono', monospace" font-size="10" letter-spacing="2" fill="#9a8e76">
+    <text x="474" y="226">NOT TAKEN → A + L</text>
+    <text x="474" y="314">TARGET = A + L</text>
+    <text x="474" y="402">RETURN ADDRESS</text>
+    <text x="474" y="490">NEVER ITS OWN NEXT</text>
+  </g>
+
+  <g fill="#f8f3e8" stroke="#c7bda4" stroke-width="2">
+    <rect x="620" y="160" width="500" height="64" rx="3"/>
+    <rect x="620" y="246" width="500" height="64" rx="3"/>
+    <rect x="620" y="332" width="500" height="64" rx="3"/>
+    <rect x="620" y="418" width="500" height="64" rx="3"/>
+  </g>
+  <g font-family="Consolas, 'Cascadia Mono', monospace" font-size="15" letter-spacing="2" fill="#3f5745">
+    <text x="648" y="187">01 · CONDITIONAL BRANCH</text>
+    <text x="648" y="273">02 · PROCEDURE CALL</text>
+    <text x="648" y="359">03 · TRAP INSTRUCTION</text>
+    <text x="648" y="445">04 · PROCEDURE RETURN</text>
+  </g>
+  <g font-family="Consolas, 'Cascadia Mono', monospace" font-size="12" letter-spacing="1" fill="#6a7457">
+    <text x="648" y="209">not taken → PC = A + L</text>
+    <text x="648" y="295">target may be A + L</text>
+    <text x="648" y="381">PC = kernel handler</text>
+    <text x="648" y="467">PC = call site + L</text>
+  </g>
+  <g font-family="Consolas, 'Cascadia Mono', monospace" font-size="14" letter-spacing="3" text-anchor="end">
+    <text x="1092" y="200" fill="#415a47">YES</text>
+    <text x="1092" y="286" fill="#415a47">YES</text>
+    <text x="1092" y="372" fill="#9a8e76">NO</text>
+    <text x="1092" y="458" fill="#9a8e76">NO</text>
+  </g>
+
+  <text x="600" y="556" text-anchor="middle" font-family="Consolas, 'Cascadia Mono', monospace" font-size="10" letter-spacing="3" fill="#9a8e76">PC = A + L IS THE WHOLE CRITERION</text>
+  <text x="600" y="618" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#3f5745">NEXT IN STORE ≠ NEXT IN TIME</text>
+
+  <text x="80" y="680" font-family="Consolas, 'Cascadia Mono', monospace" font-size="12" letter-spacing="3" fill="#9a8e76">BRANCH · CALL · TRAP · RETURN</text>
+  <text x="1120" y="680" text-anchor="end" font-family="Consolas, 'Cascadia Mono', monospace" font-size="12" letter-spacing="2" fill="#9a8e76">ONE ADDRESS EQUATION</text>
+</svg>
